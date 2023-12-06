@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+div {
+    display: flex;
+}
+
+#mainContainer {
+    flex-direction: column;
+    background-color: aliceblue;
+    border-radius: 16px;
+    max-width: 400px;
+    min-width: 400px;
+    height: 650px;
+    margin: 64px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 139, 0.384);
+}
+
+#outputContainer {
+    margin: 36px;
+    background-color: rgba(173, 216, 230, 0.774);
+    border-radius: 8px;
+    border-width: 1px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 16px;
+    font-size: 32px;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+
+}
+
+#output {
+    word-break: break-all;
+    text-align: right;
+}
+
+#buttonContainer{
+    margin-top: 0px;
+    margin-bottom: 32px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonRow {
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.button,
+.operator{
+    border-style: none;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    border-width: 1px;
+    flex-grow: 0;
+    background-color: rgba(173, 216, 230, 0.774);
+    box-shadow: 0px 0px 5px rgba(0, 0, 139, 0.384);
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.operator {
+    font-weight: bolder;
+    color: darkblue;
+}
+
+.delete {
+    width: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.button:hover,
+.operator:hover,
+.delete:hover {
+    background-color: lightgray;
+}
+
+.button:active,
+.operator:active,
+.delete:active {
+    background-color: darkgray;
+}
+
+.opperator {
+    font-weight: bolder;
+}
