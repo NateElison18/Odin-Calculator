@@ -1,6 +1,9 @@
 const numberButtons = document.querySelectorAll('.button');
 const operatorButtons = document.querySelectorAll('.operator');
 const output = document.querySelector('#output');
+const deleteBtn = document.querySelector('.delete');
+let lastChar;
+let answer;
 
 setButtonListeners();
 
@@ -14,32 +17,49 @@ function setButtonListeners() {
     operatorButtons.forEach(element => {
         switch(element.textContent) {
             case 'C':
-                clearButtonAction();
+                element.addEventListener('click', () => {
+                    clearButtonAction();
+                });
                 break;
             case '( )':
-                perenthesisAction();
+                element.addEventListener('click', () => {
+                    perenthesisAction();
+                });
                 break;
             case '=':
-                evaluateButtonAction();
+                element.addEventListener('click', () => {
+                    evaluateButtonAction();
+                });
                 break;
             case '+/-':
-                positiveNegativeButtonAction();
+                element.addEventListener('click', () => {
+                    positiveNegativeButtonAction();
+                });
                 break;
             default:
-                operatorButtonAction();
+                element.addEventListener('click', () => {
+                    operatorButtonAction(element.textContent);
+                });
                 break;
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     });
+
+    deleteBtn.addEventListener('click', () => {
+        deleteButtonAction();
+    });
+
+
 }
 
 function numberButtonAction(number) {
     output.textContent += number;
-
-    console.log("Inside numberButtonAction! num: " + number);
+    lastChar = number;
 }
 
 function clearButtonAction() {
     output.textContent = "";
+    lastChar = "";
+    answer = undefined;
 }
 
 function evaluateButtonAction() {
@@ -47,16 +67,22 @@ function evaluateButtonAction() {
 }
 
 function deleteButtonAction() {
-
+    output.textContent = output.textContent.slice(0, output.textContent.length - 1);
+    lastChar = output.textContent.charAt(output.textContent.length - 1);
 }
 
 function perenthesisAction() {
 
 }
 
-function operatorButtonAction() {
-
-
+function operatorButtonAction(operator) {
+    if(Number.isInteger(parseInt(lastChar))) {
+        output.textContent += operator;
+        lastChar = operator;
+    } else if(answer != undefined) {
+        output.textContent += answer + operator;
+        lastChar = operator;
+    }
 }
 
 function positiveNegativeButtonAction() {

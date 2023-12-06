@@ -9,6 +9,7 @@ body {
 
 div {
     display: flex;
+    user-select: none;
 }
 
 #mainContainer {
