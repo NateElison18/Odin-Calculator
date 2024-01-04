@@ -58,7 +58,8 @@ div {
 }
 
 .button,
-.operator{
+.operator, 
+.selectedOperator {
     border-style: none;
     border-radius: 100px;
     width: 60px;
@@ -78,6 +79,10 @@ div {
     color: darkblue;
 }
 
+.selectedOperator {
+    background-color: rgb(144, 180, 192);
+}
+
 .delete {
     width: 60px;
     text-align: center;
@@ -85,16 +90,21 @@ div {
     justify-content: center;
     border-radius: 10px;
 }
+#delete {
+    font-size: 18px;
+}
 
 .button:hover,
 .operator:hover,
-.delete:hover {
-    background-color: lightgray;
+.delete:hover,
+.selectedOperator:hover {
+    background-color: rgb(144, 180, 192);
 }
 
 .button:active,
 .operator:active,
-.delete:active {
+.delete:active,
+.selectedOperator:active {
     background-color: darkgray;
 }
 
